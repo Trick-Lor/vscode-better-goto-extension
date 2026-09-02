@@ -1,0 +1,11 @@
+GIF and screenshot files for the public community repo go here.
+
+Git does not track empty directories, so this placeholder keeps the folder in the repo until the
+first clip lands. Delete it once media/ has real files.
+
+Names both READMEs expect (shot-by-shot script: ../../demo-script.md):
+  demo-main.gif          hero, embedded at the top of both READMEs
+  demo-operators.gif     ciw / d2w / gUiw / >ap
+  demo-ex.gif            :1,5sort / :%s/foo/bar/g
+  demo-textobjects.gif   di( / ci" / /function / *
+  demo-preview.gif       preview on vs off, plus Escape restoring the view

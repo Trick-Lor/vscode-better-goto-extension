@@ -1,0 +1,122 @@
+{
+  "name": "better-goto",
+  "displayName": "Better Go to Line/Column",
+  "description": "The extension that adds more features and overrides the built-in \"Go to Line/Column\". Copies the Vim concept.",
+  "version": "1.0.0",
+  "publisher": "meo658",
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#faed00",
+    "theme": "light"
+  },
+  "keywords": [
+    "better",
+    "goto",
+    "go to line",
+    "go to column",
+    "line column",
+    "jump",
+    "navigation",
+    "vim",
+    "vim motion",
+    "text objects",
+    "ex commands",
+    "relative",
+    "select",
+    "bracket",
+    "motion",
+    "keymap"
+  ],
+  "engines": {
+    "vscode": "^1.90.2"
+  },
+  "categories": [
+    "Keymaps",
+    "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Trick-Lor/vscode-better-goto-extension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Trick-Lor/vscode-better-goto-extension/issues"
+  },
+  "homepage": "https://github.com/Trick-Lor/vscode-better-goto-extension#readme",
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "betterGoto.open",
+        "title": "Better Go to Line/Column..."
+      }
+    ],
+    "keybindings": [
+      {
+        "key": "ctrl+g",
+        "command": "betterGoto.open",
+        "when": "!betterGoto.boxOpen"
+      },
+      {
+        "key": "ctrl+g",
+        "command": "betterGoto.historyPrev",
+        "when": "betterGoto.boxOpen"
+      },
+      {
+        "key": "up",
+        "command": "betterGoto.historyPrev",
+        "when": "betterGoto.boxOpen"
+      },
+      {
+        "key": "down",
+        "command": "betterGoto.historyNext",
+        "when": "betterGoto.boxOpen"
+      }
+    ],
+    "configuration": {
+      "title": "Better Go to Line/Column",
+      "properties": {
+        "betterGoto.enabled": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Use this box for `Ctrl+G`. Off: `Ctrl+G` opens VS Code's built-in Go to Line/Column."
+        },
+        "betterGoto.vim": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Accept Vim commands (motions, operators, `:` ex commands). Off: only `42`, `42:5`, `+n` / `-n` and `N%` work."
+        },
+        "betterGoto.preview": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Scroll to and highlight the target while you type. Off: the editor stays still until `Enter`; the box still says where `Enter` goes."
+        },
+        "betterGoto.historySize": {
+          "type": "integer",
+          "default": 10,
+          "minimum": 0,
+          "maximum": 100,
+          "markdownDescription": "Commands remembered for `Up` / `Down` (or a second `Ctrl+G`) while the box is open. `0` turns history off."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test",
+    "test:unit": "node test/verify-parse.js && node test/verify-command-ids.js"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.90.0",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0",
+    "@vscode/vsce": "^3.9.2",
+    "eslint": "^9.9.0",
+    "eslint-plugin-jsdoc": "^48.11.0",
+    "typescript": "^5.4.5"
+  }
+}

@@ -1,0 +1,25 @@
+.vscode/**
+.vscode-test/**
+test/**
+docs/**
+node_modules/**
+
+# tester / contributor playground -- not for the installing user (user decision 2026-09-02)
+examples/**
+
+# agent tooling -- .claude/cache/rate-limits.json was shipping in 1.0.0's first package
+.claude/**
+.agents/**
+
+# dev-only config: lints the source, useless to anyone installing the extension
+eslint.config.mjs
+
+.gitignore
+.yarnrc
+vsc-extension-quickstart.md
+**/jsconfig.json
+**/*.map
+**/.vscode-test.*
+
+# the packaged artefact itself, if one is left lying around
+*.vsix
